@@ -1,5 +1,6 @@
 import sqlite3
 import os
+from dotenv import load_dotenv
 import json
 import sys
 from analyze import run_full_analysis, analyze_text_from_webm
@@ -11,7 +12,14 @@ import psycopg2
 # === CONFIGURATION ===
 VIDEO_FOLDER = r"C:\Users\LOQ\Documents\code\NLPIP\web\storage\video"
 KEYWORDS = ["healthcare", "education", "intelligence", "policy"]
-OPENROUTER_API_KEY = "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"
+
+
+# Adjust path relative to where this script is located
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', 'backend', '.env')
+load_dotenv(dotenv_path)
+
+# Now you can safely access the API key
+api_key = os.getenv("OPENROUTER_API_KEY")
 
 # === Initialize DeepSeek Client ===
 client = OpenAI(

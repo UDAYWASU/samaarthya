@@ -1,2 +1,4 @@
 /storage/video/
 /frontend/node_modules/
+.env
+*.env
