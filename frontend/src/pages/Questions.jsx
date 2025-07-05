@@ -109,7 +109,7 @@ useEffect(() => {
       const intervalId = setTimeout(() => setRedirectCountdown(prev => prev - 1), 1000);
       return () => clearTimeout(intervalId);
     } else if (interviewComplete && redirectCountdown === 0) {
-      navigate("/dashboard");
+      window.location.replace("/dashboard");
     }
   }, [interviewComplete, redirectCountdown, navigate]);
 

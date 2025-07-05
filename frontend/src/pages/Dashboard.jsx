@@ -29,6 +29,17 @@ export default function Dashboard() {
 
   if (!user) return null;
 
+useEffect(() => {
+  const blockBackNavigation = () => {
+    window.history.pushState(null, null, window.location.pathname);
+  };
+  blockBackNavigation(); // Push a dummy state
+  window.addEventListener("popstate", blockBackNavigation); // Block back
+  return () => {
+    window.removeEventListener("popstate", blockBackNavigation);
+  };
+}, []);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
        {/* 👇 Background Animation */}

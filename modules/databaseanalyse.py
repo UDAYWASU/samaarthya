@@ -19,7 +19,7 @@ dotenv_path = os.path.join(os.path.dirname(__file__), '..', 'backend', '.env')
 load_dotenv(dotenv_path)
 
 # Now you can safely access the API key
-api_key = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 # === Initialize DeepSeek Client ===
 client = OpenAI(
